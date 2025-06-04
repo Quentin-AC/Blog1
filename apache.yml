@@ -6,6 +6,12 @@
       args:
         warn: no
       when: ansible_facts['distribution'] == 'Amazon' and ansible_facts['distribution_major_version'] == '2'
+
+    - name: Install Nginx using yum
+      yum:
+        name: nginx
+        state: present
+        update_cache: yes
       
     - name: Start nginx server
       service:
